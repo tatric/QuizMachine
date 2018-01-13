@@ -1,0 +1,2 @@
+<?php
+//how quiz page

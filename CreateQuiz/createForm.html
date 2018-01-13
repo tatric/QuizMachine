@@ -1,0 +1,37 @@
+<form action=" " method="post">
+  Quiz name: <input type="text" name="QuizName" value="Somthing"><br>
+</br>
+ <textarea name='QuizQuestion <?php echo "{$out['questionNumber']}"; ?>' style="width:600px; height:100px">
+   QuizQuestion <?php echo "{$out['questionNumber']}"; ?>
+ </textarea>
+ </br>
+ </br>
+  A:
+  <textarea name="AnswerA">Answer A?</textarea>
+  <textarea name="FeedbackA">FeedbackA</textarea>
+  <input type="checkbox" name="Answer" value="A" checked>correct?
+
+  <br>
+  B: <textarea name="AnswerB">Answer B?</textarea>
+  <textarea name="FeedbackB">FeedbackB</textarea>
+  <input type="checkbox" name="Answer" value="B">correct?
+
+  <br>
+  C: <textarea name="AnswerC">Answer C?</textarea>
+  <textarea name="FeedbackC">FeedbackC</textarea>
+  <input type="checkbox" name="Answer" value="B">correct?
+
+  <br>
+  D: <textarea name="AnswerD">Answer D?</textarea>
+  <textarea name="FeedbackD">FeedbackD</textarea>
+  <input type="checkbox" name="Answer" value="B">correct?
+
+  <br>
+
+
+ <br>
+ <input name="questionNumber" type="hidden" value="<?php echo "{$out['questionNumber']}"; ?>">
+ <input name="Action" type="submit" value="Back">
+ <input name="Action" type="submit" value="Save and finish">
+ <input name="Action" type="submit" value="Save and continue">
+</form>
