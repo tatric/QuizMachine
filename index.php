@@ -25,6 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $Action = test_input($_POST["Action"]);
 }
 
+//Select uniq(quiz_name) from quiztable.
+$Quizes = $QuizTable->distinctColumb('quiz_name');
+echo "</br> Quizes =";
+print_r($Quizes);
+$qu='';
+foreach ($Quizes as $Quiz){
+	$qu.=$Quiz['quiz_name'];
+	}
 //var_dump ($_POST);
 
 #add to database
@@ -35,11 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //$out['Qname']='Git';
   //$out['formName']='Create Quiz';
   //$out['questionNumber']=$questionNumber+1;
-  $out['mainPage']='./main.html';
+  $out['mainPage']=$qu;//izes['quiz_name']; //'./main.html';
   $out['mainTitle']='Select a quiz';
   $out['Qname'] = 'Quiz name';
   $out['title']= 'Quiz Machine';
-  //echo $out['main'];
+  //$out['maincontent']= $Quizes;
 include './template.html';
 
 //}

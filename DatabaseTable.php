@@ -26,7 +26,11 @@ class DatabaseTable {
 		}
 
 	}
-
+	public function distinctColumb($columb) {
+		$query = $this->query("SELECT DISTINCT $columb FROM `" . $this->table . '`');
+		return $query->fetchAll(); //return all the unique 
+		 
+	}
 
 
 	public function total() {

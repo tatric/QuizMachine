@@ -5,7 +5,7 @@
 include '../config.php';
 
 
-echo "Total from database = ".$QuizTable->findById('1')."</br>";
+echo "Total from database = ".$QuizTable->Total('1')."</br>";
 //if form submitted
 //if (formSubmitted == true) {
 // define variables and set to empty values
@@ -36,7 +36,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data['id']='';
 }
 try{
-  print_r("Save=".$QuizTable->save($data));
+	if ($data['action']=='Back'){
+		header('location:/QuizMachine/');
+	}
+	if ($data['action']=='Save and continue'){
+		
+		print_r("Save=".$QuizTable->save($data));
+	}
+	if ($data['action']=='Save and finish'){
+		print_r("Save=".$QuizTable->save($data));
+		header('location:/QuizMachine/');
+	}
 } catch (PDOException $e) {
   $out['mainTitle'] = 'An error has occurred';
   $out['mainPage'] = 'Database error: ' . $e->getMessage() . ' in '
@@ -48,12 +58,18 @@ print_r ($data);
 
 //} else {
   #get the current form data if any and show the form.
-
+  // its important that the quizname is the same each time or the questions will not be part of the same quiz!
+  // The quizname should be called form the database and if not must be set with 1st question.
+  if (!isset($data['quiz_name'])){
+      $out['quiz_name']=$data['quiz_name'];
+  
+  }
+  
   $out['Qname']='Git';
   $out['mainTitle'] = $out['title']='Create Quiz';
   $out['questionNumber']=$data['questionNumber']+1;
   $out['mainPage']='createForm.html';
-  'mainTitle';
+  
 include '../template.html';
 
 //}
