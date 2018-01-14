@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><?php echo "{$out['title']}"; ?></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 1px;
+    text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+    width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><?php echo "{$out['Qname']}"; ?>  <?php echo "{$out['mainpage']}"; ?>Quiz</h1>
+
+</div>
+
+<div class="topnav">
+  <a href="./">Home</a>
+  <a href= "<?php echo '{$out['Qname']}''; ?>" > <?php echo "{$out['Qname']}"; ?></a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+<div class="row">
+  <div class="column side">
+    <h2>Create a quiz</h2>
+    <p>Enter name of quiz:</p>
+    <p>Enter Question:</p>
+    <p>Quiz app
+
+webpage
+create quiz → quiz name → question 1 and 4 question answers and the real answer and the others as explanations. →next or finish making quiz
+
+this webpage enter data into quiz table and quiz name table.
+
+Quiz name table
+id quizname
+<p>
+Quiz table
+<p>
+id quizname_id Question AnswerAtext AnswerBtext AnswerCtext AnswerDtext feedbackA feedbackB feedbackC feedbackD BA BB BC BD</p>
+
+
+  </div>
+  <div class="column middle">
+    <h2>"{$out['mainpage']}" Form</h2>
+    <?php include "{$out['mainpage']}"; ?>
+  </div>
+  <div class="column side">
+    <h2>Side</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+  </div>
+</div>
+
+</body>
+</html>

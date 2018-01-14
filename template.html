@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title><?php echo "{$out['formName']}"; ?></title>
+<title><?php echo "{$out['title']}"; ?></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -81,8 +81,10 @@ body {
 </div>
 
 <div class="topnav">
-  <a href=<?php echo "{$out['Qname']}"; ?> > <?php echo "{$out['Qname']}"; ?></a>
-  <a href="#">Link</a>
+  <a href="/QuizMachine/">Home</a>
+  <a href="/QuizMachine/CreateQuiz">CreateQuiz</a>
+  <a href=<?php echo "{$out['Qname']}"; ?> > Latest: <?php echo "{$out['Qname']}"; ?></a>
+
   <a href="#">Link</a>
 </div>
 
@@ -108,8 +110,8 @@ id quizname_id Question AnswerAtext AnswerBtext AnswerCtext AnswerDtext feedback
 
   </div>
   <div class="column middle">
-    <h2><?php echo "{$out['formName']}"; ?> Form</h2>
-    <?php include 'createForm.html'; ?>
+    <h2><?php echo "{$out['mainTitle']}"; ?></h2>
+    <?php include "{$out['mainPage']}"; ?>
   </div>
   <div class="column side">
     <h2>Side</h2>
